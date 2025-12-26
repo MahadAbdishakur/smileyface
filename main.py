@@ -4,7 +4,7 @@ import turtle #allows us to use this libary or added program or something, note 
 screen = turtle.Screen() #im assuming this sets up the screen
 screen.title("Smiling Face with Python Turtle") #title of the image im assuming
 t = turtle.Turtle() #makes it easier to call turtle which is the funny libary name
-t.speed(3) #dictates the speed of the drawing, may or may not be what decides the speed of each item and not just this one circle
+t.speed(8) #dictates the speed of the drawing, may or may not be what decides the speed of each item and not just this one circle
 t.penup() #i dont know what this does ??
 t.goto(0, -100) #im asssuming this is the reason why its sorta in the middle, when changed to a postive number it moves higher up in the screen
 t.pendown() #ik its self explantory but how does it work and what function is this exactly
@@ -28,14 +28,25 @@ t.begin_fill() #after we create the shape by carving it out then we begin fill
 t.circle(15) # this makes a circle but idk what the point of the goto is for
 t.end_fill()
 #  the cursor is called a turtle
-#smile
+#frown
 t.penup()
-t.goto(-40, -20) # wow i think this goes from one eye to the other
+t.goto(40, -20) # wow i think this goes from one eye to the other
 t.pendown() #idk okay
 t.width(8) # this is how thick the smile is
 t.color("black") #black the color
 t.setheading(-60) #the angle i think
-t.circle(50, 120) #wtf
+t.circle(-50, -120) #what made it a frown an upsided down smile
+#mad
+#confused
+#smile
+
+#   t.penup()
+#  t.goto(-40, -20) # wow i think this goes from one eye to the other
+#  t.pendown() #idk okay
+#  t.width(8) # this is how thick the smile is
+#  t.color("black") #black the color
+#  t.setheading(-60) #the angle i think
+#  t.circle(50, 120) #wtf
 # extra steps for prettiness
 t.hideturtle #hides cursor
 screen.mainloop() #i think this closes the drawing and keeps the window open
