@@ -1,12 +1,13 @@
 # Write your code here :-)
 import turtle #allows us to use this libary or added program or something, note to self, learn the name
-print("how do you feel today")
-input("type down here : ")
+from turtle import *
+mood_input = input("how do you feel today? ").lower()
 screen = turtle.Screen() #im assuming this sets up the screen
 screen.title("Smiling Face with Python Turtle") #title of the image im assuming
 t = turtle.Turtle() #makes it easier to call turtle which is the funny libary name
-def smiley():
+def smiley(mouth_function):
   t.speed(8) #dictates the speed of the drawing, may or may not be what decides the speed of each item and not just this one circle
+  #face
   t.penup() #i dont know what this does ??
   t.goto(0, -100) #im asssuming this is the reason why its sorta in the middle, when changed to a postive number it moves higher up in the screen
   t.pendown() #ik its self explantory but how does it work and what function is this exactly
@@ -17,7 +18,7 @@ def smiley():
   #left eye
   t.penup()
   t.goto(-40, 20 ) # im assuming the right eye will be the opposite (40, -20) which might not make sense, it will probaly be postive 20 and positive 40
-  t.pendown #WHAT DOES THIS DOOO
+  t.pendown() #WHAT DOES THIS DOOO
   t.color("black") #WHATEVER WE ALREADY KNOW
   t.begin_fill() #IK WHAT THIS DOES WHY ARE WE REITERATING, IK ITS FOR PRATICE BUT CHILL 
   t.circle(15) #A CIRCLE LIKE WHAT BUT THE 15 IS INTRESTING <COULD BE WRONG
@@ -29,31 +30,47 @@ def smiley():
   t.begin_fill() #after we create the shape by carving it out then we begin fill
   t.circle(15) # this makes a circle but idk what the point of the goto is for
   t.end_fill()
-  def smile():
-    t.penup()
-    t.goto(-40, -20) # wow i think this goes from one eye to the other
-    t.pendown() #idk okay
-    t.width(8) # this is how thick the smile is
-    t.color("black") #black the color
-    t.setheading(-60) #the angle i think
-    t.circle(50, 120) #wtf
-  def frown():
-    t.penup()
-    t.goto(40, -20) # wow i think this goes from one eye to the other
-    t.pendown() #idk okay
-    t.width(20) # this is how thick the smile is
-    t.color("black") #black the color
-    t.setheading(-60) #the angle i think
-    t.circle(-50, -120) #what made it a frown an upsided down smile
-  t.hideturtle #hides cursor
-  screen.mainloop() #i think this closes the drawing and keeps the window open
+  mouth_function(t) # what tf does this do 
+  
+  
+  
+  
+  
+  
+  
+def smile(t):
+  t.penup()
+  t.goto(-40, -20) # wow i think this goes from one eye to the other
+  t.pendown() #idk okay
+  t.width(8) # this is how thick the smile is
+  t.color("black") #black the color
+  t.setheading(-60) #the angle i think
+  t.circle(50, 120) #wtf
+def frown(t):
+  t.penup()
+  t.goto(40, -20) # wow i think this goes from one eye to the other
+  t.pendown() #idk okay
+  t.width(8) # this is how thick the smile is
+  t.color("black") #black the color
+  t.setheading(-60) #the angle i think
+  t.circle(-50, -120) #what made it a frown an upsided down smile
 #  the cursor is called a turtle
 #mad
 #confused
 # extra steps for prettiness
-
+mood_map = { 
+  "happy" : smile,
+  "good" :  smile,
+  "great" : smile,
+  "sad" : frown,
+  "depressed": frown,
+  "angry": frown
+} #mood map that maps out values to functions 
 #if turtle is True :
  #   print("works")
 #else:
   #  print("false")
-smiley(smile())
+mouth_function = mood_map.get(mood_input, smile) # mouth function is grabbing the values from mood map and taking the mood input and matching values otherwise smile 
+smiley(mouth_function) # takes the mouth function and runs it as a value/argument in the smiley function 
+t.hideturtle() #hides cursor
+screen.mainloop  #i think this closes the drawing and keeps the window open
